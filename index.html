@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مكتبة الإلكترونية جامعة دار السلام</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+  <!-- إضافة رابط خط Cairo Black -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* تعيين خط Cairo Black على جميع النصوص */
+    body {
+      font-family: 'Cairo', sans-serif;
+      font-weight: 900; /* استخدام الوزن الثقيل من Cairo */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .box {
+      background-color: #ffffff00;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+      text-align: center;
+    }
+
+    .form .username,
+    .form .password {
+      position: relative;
+      margin: 20px 0;
+    }
+
+    .form input {
+      width: 100%;
+      padding: 10px 40px 10px 10px;
+      font-size: 16px;
+      border: 1px solid #cccccc00;
+      border-radius: 5px;
+    }
+
+    .form ion-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #0400ffa4;
+    }
+
+    .btn-box {
+      margin-top: 20px;
+    }
+
+    .registration-box {
+      margin-top: 20px; /* مسافة بين النموذج وأيقونة التسجيل */
+      background-color: #000; /* لون الخلفية الأسود */
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative; /* لتسهيل وضع الأيقونة بشكل صحيح */
+    }
+
+    .registration-link {
+      color: white; /* لون الأيقونة الأبيض */
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .registration-icon {
+      font-size: 30px; /* حجم الأيقونة */
+    }
+
+    .registration-link:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 1), 0 0 25px rgba(255, 215, 0, 0.8);
+    }
+
+    .whatsapp-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      padding: 8px;
+      color: white;
+      font-size: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .whatsapp-icon ion-icon {
+      font-size: 35px;
+    }
+
+    .whatsapp-icon span {
+      margin-left: 8px;
+      font-size: 16px;
+      color: white;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-button {
+      background-color: #ffffff00; /* لون زر تسجيل الدخول شفاف */
+      color: #000; /* نص الزر باللون الأسود */
+      padding: 12px 24px;
+      font-size: 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .login-button:hover {
+      background-color: #e1d45d; /* لون الخلفية عند التمرير */
+      box-shadow: 0 0 10px rgba(255, 223, 0, 1), 0 0 20px rgba(255, 223, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <main class="box">
+    <form class="form" onsubmit="return validateLogin(event)">
+      <h3>البوابة الإلكترونية لخدمات الطلاب</h3>
+      <div class="username">
+        <input type="text" id="username" placeholder="البريد الإلكتروني" required />
+        <ion-icon name="person"></ion-icon>
+      </div>
+      <div class="password">
+        <input type="password" id="password" placeholder="كلمة المرور" required />
+        <ion-icon name="lock-closed"></ion-icon>
+      </div>
+      <div class="btn-box">
+        <button type="submit" class="login-button">تسجيل دخول</button>
+      </div>
+    </form>
+
+    <!-- أيقونة التسجيل الإلكتروني فوق أيقونة الواتساب -->
+    <div class="registration-box">
+      <a href="https://sites.google.com/view/darelsalam" target="_blank" class="registration-link">
+        <ion-icon name="school-outline" class="registration-icon"></ion-icon>
+      </a>
+    </div>
+  </main>
+
+  <!-- أيقونة واتساب دعم الفني تبقى في الأسفل -->
+  <a href="https://wa.me/message/EQ3LDSVU4ZPHF1" class="whatsapp-icon" target="_blank">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+    <span>دعم الفني</span>
+  </a>
+
+  <script>
+    const emails = [
+      "drgummaelmusmarı@darelsalam-u.edu.ly",
+      "emadmikael@darelsalam-u.edu.ly",
+      "abdulrahmanfayez@darelsalam-u.edu.ly",
+      "manskhamis@darelsalam-u.edu.ly",
+      "khaledbelkasem@darelsalam-u.edu.ly",
+      "eisasomar@darelsalam-u.edu.ly",
+      "hendelallaky@darelsalam-u.edu.ly",
+      "safaahamida@darelsalam-u.edu.ly",
+      "bushraali@darelsalam-u.edu.ly",
+      "osamaelmusmari@darelsalam-u.edu.ly",
+      "faridelmusmari@darelsalam-u.edu.ly",
+      "sabrenrajab@darelsalam-u.edu.ly",
+      "yasminemoussa@darelsalam-u.edu.ly",
+      "jadallahelmusmari@darelsalam-u.edu.ly",
+      "zamabalqatani@darelsalam-u.edu.ly",
+      "omar@darelsalam-u.edu.ly",
+      "medical.students@services.dsu.edu.ly",
+      "dental.students@services.dsu.edu.ly",
+    ];
+
+    function validateLogin(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (emails.includes(username) && password === 'DSU20242025') {
+        window.location.href = 'https://sites.google.com/view/student-services-portal';
+      } else {
+        alert('Invalid Username or Password');
+      }
+    }
+  </script>
+</body>
+</html>
